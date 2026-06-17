@@ -1,0 +1,119 @@
+import React from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+
+function Sidebar() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    navigate("/");
+  };
+
+  return (
+    <div
+      className="d-flex flex-column text-white p-3"
+      style={{
+        width: "260px",
+        minHeight: "100vh",
+        background: "#1f2937",
+      }}
+    >
+      {/* Logo */}
+      <div className="text-center mb-4">
+        <h3 className="fw-bold">
+          <i className="bi bi-box-seam me-2"></i>
+          InventoryPro
+        </h3>
+        <hr className="text-secondary" />
+      </div>
+
+      {/* Navigation */}
+      <ul className="nav nav-pills flex-column mb-auto">
+        <li className="nav-item mb-2">
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              `nav-link ${
+                isActive ? "active bg-primary" : "text-white"
+              }`
+            }
+          >
+            <i className="bi bi-speedometer2 me-2"></i>
+            Dashboard
+          </NavLink>
+        </li>
+
+        <li className="nav-item mb-2">
+          <NavLink
+            to="/products"
+            className={({ isActive }) =>
+              `nav-link ${
+                isActive ? "active bg-primary" : "text-white"
+              }`
+            }
+          >
+            <i className="bi bi-box-seam me-2"></i>
+            Products
+          </NavLink>
+        </li>
+
+        <li className="nav-item mb-2">
+          <NavLink
+            to="/admin"
+            className={({ isActive }) =>
+              `nav-link ${
+                isActive ? "active bg-primary" : "text-white"
+              }`
+            }
+          >
+            <i className="bi bi-shield-lock me-2"></i>
+            Admin Panel
+          </NavLink>
+        </li>
+
+        <li className="nav-item mb-2">
+          <NavLink
+            to="/reports"
+            className={({ isActive }) =>
+              `nav-link ${
+                isActive ? "active bg-primary" : "text-white"
+              }`
+            }
+          >
+            <i className="bi bi-bar-chart-line me-2"></i>
+            Reports
+          </NavLink>
+        </li>
+
+        <li className="nav-item mb-2">
+          <NavLink
+            to="/settings"
+            className={({ isActive }) =>
+              `nav-link ${
+                isActive ? "active bg-primary" : "text-white"
+              }`
+            }
+          >
+            <i className="bi bi-gear me-2"></i>
+            Settings
+          </NavLink>
+        </li>
+      </ul>
+
+      {/* Logout */}
+      <div className="mt-auto">
+        <hr className="text-secondary" />
+
+        <button
+          className="btn btn-danger w-100"
+          onClick={handleLogout}
+        >
+          <i className="bi bi-box-arrow-right me-2"></i>
+          Logout
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default Sidebar;

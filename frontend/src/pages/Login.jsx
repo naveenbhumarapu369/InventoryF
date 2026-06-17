@@ -41,7 +41,7 @@ function Login() {
 
       // Redirect after successful login
       setTimeout(() => {
-        navigate("/home");
+        navigate("/dashboard");
       }, 1000);
 
     } catch (error) {
