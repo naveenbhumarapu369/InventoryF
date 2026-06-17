@@ -44,13 +44,28 @@ function Dashboard() {
             </p>
           </div>
 
-          <button
-            className="btn btn-light"
-            onClick={handleLogout}
-          >
-            <i className="bi bi-box-arrow-right me-2"></i>
-            Logout
-          </button>
+          <div className="d-flex align-items-center">
+            <div className="text-end me-3">
+              <h6 className="mb-0 fw-bold text-white">
+                {user?.fullName}
+              </h6>
+              <small className="text-light">
+                Administrator
+              </small>
+            </div>
+
+            <div
+              className="rounded-circle bg-white text-primary d-flex align-items-center justify-content-center fw-bold"
+              style={{
+                width: "45px",
+                height: "45px",
+                fontSize: "18px",
+                cursor: "pointer",
+              }}
+            >
+              {user?.fullName?.charAt(0).toUpperCase()}
+            </div>
+          </div>
         </div>
       </div>
 
