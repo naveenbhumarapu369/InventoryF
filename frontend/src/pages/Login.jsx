@@ -29,7 +29,8 @@ function Login() {
         "http://localhost:5001/api/login",
         formData
       );
-
+      // Store JWT token
+      localStorage.setItem("token", response.data.token);
       // Store user details
       localStorage.setItem(
         "user",

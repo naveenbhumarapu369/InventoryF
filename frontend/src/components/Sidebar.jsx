@@ -14,8 +14,10 @@ function Sidebar() {
       className="d-flex flex-column text-white p-3"
       style={{
         width: "260px",
-        minHeight: "100vh",
+        height: "100vh",
         background: "#1f2937",
+        position: "sticky",
+        top: 0,
       }}
     >
       {/* Logo */}
@@ -32,6 +34,7 @@ function Sidebar() {
         <li className="nav-item mb-2">
           <NavLink
             to="/dashboard"
+            end
             className={({ isActive }) =>
               `nav-link ${
                 isActive ? "active bg-primary" : "text-white"
@@ -45,7 +48,7 @@ function Sidebar() {
 
         <li className="nav-item mb-2">
           <NavLink
-            to="/products"
+            to="/dashboard/products"
             className={({ isActive }) =>
               `nav-link ${
                 isActive ? "active bg-primary" : "text-white"
@@ -59,7 +62,7 @@ function Sidebar() {
 
         <li className="nav-item mb-2">
           <NavLink
-            to="/admin"
+            to="/dashboard/admin"
             className={({ isActive }) =>
               `nav-link ${
                 isActive ? "active bg-primary" : "text-white"
@@ -73,7 +76,7 @@ function Sidebar() {
 
         <li className="nav-item mb-2">
           <NavLink
-            to="/reports"
+            to="/dashboard/report"
             className={({ isActive }) =>
               `nav-link ${
                 isActive ? "active bg-primary" : "text-white"
@@ -81,13 +84,13 @@ function Sidebar() {
             }
           >
             <i className="bi bi-bar-chart-line me-2"></i>
-            Reports
+            Report
           </NavLink>
         </li>
 
         <li className="nav-item mb-2">
           <NavLink
-            to="/settings"
+            to="/dashboard/settings"
             className={({ isActive }) =>
               `nav-link ${
                 isActive ? "active bg-primary" : "text-white"

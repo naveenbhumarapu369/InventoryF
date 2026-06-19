@@ -2,6 +2,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bcrypt = require("bcryptjs");
+const productRoutes = require("./routes/productRoutes");
+
+const jwt = require("jsonwebtoken");
+
 require("dotenv").config();
 
 const User = require("./models/User");
@@ -17,6 +21,9 @@ app.use(
 );
 
 app.use(express.json());
+
+// Routes
+app.use("/api/products", productRoutes);
 
 // MongoDB Connection
 mongoose
@@ -95,8 +102,20 @@ app.post("/api/login", async (req, res) => {
       });
     }
 
+    const token = jwt.sign(
+      {
+        id: existingUser._id,
+        email: existingUser.email
+      },
+      process.env.JWT_SECRET,
+      { 
+        expiresIn: "1h" 
+      }
+    );
+
     res.status(200).json({
       message: "Login successful",
+      token: token ,
       user: {
         id: existingUser._id,
         fullName: existingUser.fullName,
