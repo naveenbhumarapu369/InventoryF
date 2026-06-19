@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../App.css";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 
@@ -50,8 +51,11 @@ function Dashboard() {
     0
   );
 
+  const lowStockLimit = Number(localStorage.getItem("lowStockLimit")) || 5;
+
   const lowStockItems = products.filter(
-    (product) => Number(product.quantity) < 5
+    (product) =>
+      Number(product.quantity) < lowStockLimit
   ).length;
 
   const inventoryValue = products.reduce(
@@ -63,7 +67,7 @@ function Dashboard() {
   );
 
   return (
-    <div className="container py-5">
+    <div className="container py-5 theme-content">
 
       {/* User Card */}
 

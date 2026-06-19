@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "../App.css";
 
 function Report() {
   const [products, setProducts] = useState([]);
@@ -27,8 +28,10 @@ function Report() {
     0
   );
 
+  const lowStockLimit = Number(localStorage.getItem("lowStockLimit")) || 5;
+
   const lowStockProducts = products.filter(
-    (item) => Number(item.quantity) < 5
+    (item) => Number(item.quantity) < lowStockLimit
   );
 
   const inventoryValue = products.reduce(
@@ -48,7 +51,7 @@ function Report() {
     .slice(0, 5);
 
   return (
-    <div className="container-fluid p-4 bg-light min-vh-100">
+    <div className="container-fluid p-4 theme-content">
       <h2 className="fw-bold mb-4">
         Inventory Reports
       </h2>

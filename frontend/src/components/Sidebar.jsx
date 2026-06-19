@@ -1,9 +1,12 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import "../App.css";
 
 function Sidebar() {
   const navigate = useNavigate();
 
+  const theme = localStorage.getItem("theme") || "light";
+  
   const handleLogout = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
@@ -16,7 +19,10 @@ function Sidebar() {
       style={{
         width: "260px",
         height: "100vh",
-        background: "#1f2937",
+        background:
+          theme === "dark"
+            ? "#111827"
+            : "#1f2937",
         position: "sticky",
         top: 0,
       }}

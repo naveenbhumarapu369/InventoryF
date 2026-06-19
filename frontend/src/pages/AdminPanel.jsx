@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "../App.css";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 
@@ -130,7 +131,7 @@ function AdminPanel() {
   );
 
   return (
-    <div className="container-fluid p-4 bg-light min-vh-100">
+    <div className="container-fluid p-4 theme-content">
       <h2 className="fw-bold mb-4">
         <i className="bi bi-shield-lock me-2"></i>
         Admin Panel
