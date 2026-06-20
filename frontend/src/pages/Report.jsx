@@ -107,104 +107,94 @@ function Report() {
 
       {/* Low Stock Products */}
 
-      <div className="card shadow border-0 mb-4">
-        <div className="card-header bg-warning text-dark">
-          <h5 className="mb-0">
-            Low Stock Products
-          </h5>
-        </div>
+      <div className="row g-4">
 
-        <div className="card-body">
-          <div className="table-responsive">
-            <table className="table table-striped">
-              <thead>
-                <tr>
-                  <th>Product Name</th>
-                  <th>Category</th>
-                  <th>Quantity</th>
-                </tr>
-              </thead>
+        {/* Low Stock Products */}
+        <div className="col-md-6">
+          <div className="card shadow border-0 h-100">
+            <div className="card-header bg-warning text-dark">
+              <h5 className="mb-0">
+                Low Stock Products
+              </h5>
+            </div>
 
-              <tbody>
-                {lowStockProducts.length > 0 ? (
-                  lowStockProducts.map(
-                    (product) => (
-                      <tr key={product._id}>
-                        <td>
-                          {product.productName}
-                        </td>
-                        <td>
-                          {product.category}
-                        </td>
-                        <td className="text-danger fw-bold">
-                          {product.quantity}
+            <div className="card-body">
+              <div className="table-responsive">
+                <table className="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Product Name</th>
+                      <th>Category</th>
+                      <th>Quantity</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+                    {lowStockProducts.length > 0 ? (
+                      lowStockProducts.map((product) => (
+                        <tr key={product._id}>
+                          <td>{product.productName}</td>
+                          <td>{product.category}</td>
+                          <td className="text-danger fw-bold">
+                            {product.quantity}
+                          </td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td
+                          colSpan="3"
+                          className="text-center"
+                        >
+                          No low stock items
                         </td>
                       </tr>
-                    )
-                  )
-                ) : (
-                  <tr>
-                    <td
-                      colSpan="3"
-                      className="text-center"
-                    >
-                      No low stock items
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Recent Products */}
+        {/* Recent Products */}
+        <div className="col-md-6">
+          <div className="card shadow border-0 h-100">
+            <div className="card-header bg-primary text-white">
+              <h5 className="mb-0">
+                Recently Added Products
+              </h5>
+            </div>
 
-      <div className="card shadow border-0">
-        <div className="card-header bg-primary text-white">
-          <h5 className="mb-0">
-            Recently Added Products
-          </h5>
-        </div>
-
-        <div className="card-body">
-          <div className="table-responsive">
-            <table className="table table-hover">
-              <thead>
-                <tr>
-                  <th>Product Name</th>
-                  <th>Category</th>
-                  <th>Price</th>
-                  <th>Date Added</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                {recentProducts.map(
-                  (product) => (
-                    <tr key={product._id}>
-                      <td>
-                        {product.productName}
-                      </td>
-
-                      <td>
-                        {product.category}
-                      </td>
-
-                      <td>
-                        ₹{product.price}
-                      </td>
-
-                      <td>
-                        {new Date(
-                          product.createdAt
-                        ).toLocaleDateString()}
-                      </td>
+            <div className="card-body">
+              <div className="table-responsive">
+                <table className="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Product Name</th>
+                      <th>Category</th>
+                      <th>Price</th>
+                      <th>Date Added</th>
                     </tr>
-                  )
-                )}
-              </tbody>
-            </table>
+                  </thead>
+
+                  <tbody>
+                    {recentProducts.map((product) => (
+                      <tr key={product._id}>
+                        <td>{product.productName}</td>
+                        <td>{product.category}</td>
+                        <td>₹{product.price}</td>
+                        <td>
+                          {new Date(
+                            product.createdAt
+                          ).toLocaleDateString()}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>

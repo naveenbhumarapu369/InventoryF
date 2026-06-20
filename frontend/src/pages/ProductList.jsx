@@ -66,22 +66,26 @@ function ProductList() {
 
   return (
     <div className="container-fluid p-4 bg-light min-vh-100">
-      <div className="mb-4">
-        <h2 className="fw-bold">Product List</h2>
-        <p className="text-muted mb-0">
-          View and manage all inventory products.
-        </p>
-      </div>
+      <div className="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h2 className="fw-bold mb-0">
+            Product List
+          </h2>
 
-      {/* Search */}
-      <div className="mb-3">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Search Product..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
+          <p className="text-muted mb-0">
+            View and manage all inventory products.
+          </p>
+        </div>
+
+        <div style={{ width: "300px" }}>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search Product..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
       </div>
 
       {/* Product Table */}
