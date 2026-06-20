@@ -104,11 +104,7 @@ function Report() {
           </div>
         </div>
       </div>
-
-      {/* Low Stock Products */}
-
       <div className="row g-4">
-
         {/* Low Stock Products */}
         <div className="col-md-6">
           <div className="card shadow border-0 h-100">
