@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import API_URL from "../config";
 import "../App.css";
 
 function Report() {
@@ -12,7 +13,7 @@ function Report() {
   const fetchProducts = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5001/api/products"
+        `${API_URL}/api/products`
       );
 
       setProducts(res.data);

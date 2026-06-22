@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import API_URL from "../config";
 import "../App.css";
 
 function Login() {
@@ -26,7 +27,7 @@ function Login() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5001/api/login",
+        `${API_URL}/api/login`,
         formData
       );
       // Store JWT token

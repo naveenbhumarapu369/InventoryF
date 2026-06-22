@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import API_URL from "../config";
 import "../App.css";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
@@ -29,7 +30,7 @@ function Dashboard() {
   const fetchProducts = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5001/api/products"
+        `${API_URL}/api/products`
       );
 
       setProducts(res.data);

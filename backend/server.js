@@ -15,7 +15,9 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin: "http://localhost:5173", // Vite
+    origin: process.env.NODE_ENV === "production" 
+      ? ["https://inventory-management-system-mren.vercel.app", "https://inventory-management-system-mren-chi.vercel.app"]
+      : "http://localhost:5173",
     credentials: true,
   })
 );
